@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -21,9 +21,17 @@ export class UsersService {
   }
 
   create(createUserDto: CreateUserDto): User {
+    const email = createUserDto.email.trim().toLowerCase();
+    const emailAlreadyExists = this.users.some(
+      (user) => user.email.trim().toLowerCase() === email,
+    );
+    if (emailAlreadyExists) {
+      throw new ConflictException('El correo electrónico ya está registrado');
+    }
+
     const newUser: User = {
       id: this.users.length + 1,
-      email: createUserDto.email,
+      email,
       name: createUserDto.name,
       role: createUserDto.role || 'User',
       isActive: true,
