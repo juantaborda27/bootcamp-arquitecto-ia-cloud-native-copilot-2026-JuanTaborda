@@ -1,0 +1,40 @@
+{
+  "skill_name": "globaledb-review-change",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Revisa un diff que añade POST /enrollments y acepta studentId desde el token y desde el body, sin pruebas de autorización.",
+      "expected_output": "Hallazgos priorizados que detectan suplantación de identidad, contrato ambiguo y pruebas de autorización faltantes.",
+      "files": [],
+      "assertions": [
+        "Prioriza el riesgo de usar studentId controlado por el cliente",
+        "Exige derivar la identidad del token o una regla explícita de autorización",
+        "Solicita pruebas 401, 403 y de acceso entre usuarios",
+        "Presenta hallazgos antes del resumen"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Revisa un worker que procesa EnrollmentCreated pero no persiste eventId y reintenta tras timeout.",
+      "expected_output": "Identifica duplicación por entrega al menos una vez, recomienda idempotencia persistente y pruebas con reentrega.",
+      "files": [],
+      "assertions": [
+        "Identifica el riesgo de efectos duplicados",
+        "Relaciona eventId con una estrategia de idempotencia",
+        "Solicita una prueba de reentrega o retry",
+        "Diferencia defectos de observaciones de estilo"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Resume los conceptos principales del módulo de Docker, sin revisar código ni un diff.",
+      "expected_output": "Indica que el skill de revisión de cambios no es el procedimiento adecuado y responde sin fabricar hallazgos de código.",
+      "files": [],
+      "assertions": [
+        "No inventa un diff ni hallazgos",
+        "Aclara que no existe un cambio revisable",
+        "Orienta hacia el material del módulo"
+      ]
+    }
+  ]
+}

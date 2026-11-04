@@ -1,0 +1,6 @@
+backend:
+  image: ghcr.io/OWNER/enrollmenthub-backend:replace-with-sha
+frontend:
+  image: ghcr.io/OWNER/enrollmenthub-frontend:replace-with-sha
+service:
+  port: 80

@@ -1,0 +1,32 @@
+# .NET
+bin/
+obj/
+*.user
+
+# Node / Next / Angular
+node_modules/
+.next/
+dist/
+out/
+*.log
+.work/
+
+# Python / FastAPI
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Editor / OS
+.vs/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+.env
+.env.*
+!.env.example
+!.env.*.example
+

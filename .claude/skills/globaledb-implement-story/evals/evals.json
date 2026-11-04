@@ -1,0 +1,41 @@
+{
+  "skill_name": "globaledb-implement-story",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Implementa una historia para inscribir un estudiante desde Next.js usando una API NestJS. Debe impedir duplicados y publicar EnrollmentCreated.",
+      "expected_output": "Un plan acotado seguido de implementación incremental, pruebas de duplicados, contrato del evento, validaciones ejecutadas y riesgos pendientes.",
+      "files": [],
+      "assertions": [
+        "Define criterios de aceptación observables antes de editar",
+        "Identifica una validación capaz de refutar la hipótesis",
+        "Incluye prueba de inscripción duplicada",
+        "Revisa idempotencia y seguridad",
+        "Distingue comandos ejecutados de recomendaciones pendientes"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Corrige el error 500 del endpoint de cursos sin cambiar el contrato público ni refactorizar módulos ajenos.",
+      "expected_output": "Diagnóstico local, cambio mínimo compatible, prueba de regresión y validación enfocada sin refactors fuera de alcance.",
+      "files": [],
+      "assertions": [
+        "Formula una hipótesis local sobre la causa",
+        "Mantiene fuera de alcance los módulos no relacionados",
+        "Añade o identifica una prueba de regresión",
+        "Valida compatibilidad del contrato público"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Cambia el color del título de una diapositiva de evidencia.",
+      "expected_output": "Reconoce que el workflow fullstack completo es excesivo para una edición visual trivial y propone una validación proporcional.",
+      "files": [],
+      "assertions": [
+        "No inventa una arquitectura o historia E2E innecesaria",
+        "Mantiene la validación proporcional al cambio",
+        "No añade tecnologías ni archivos fuera de alcance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+name: Reusable Deployment Workflow
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        description: "Target environment (dev, stage, prod)"
+      app_name:
+        required: true
+        type: string
+        description: "Application name"
+      image_tag:
+        required: true
+        type: string
+        description: "OCI Image Tag to deploy"
+    outputs:
+      deploy_status:
+        description: "Deployment outcome status"
+        value: ${{ jobs.deploy.outputs.status }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    outputs:
+      status: ${{ steps.step_deploy.outputs.status }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Deployment Governance
+        run: |
+          echo "Deploying ${{ inputs.app_name }} to environment: ${{ inputs.environment }}"
+          echo "Image Tag: ${{ inputs.image_tag }}"
+          echo "Branch Trigger: ${{ github.ref }}"
+
+      - name: Execute Deployment Pipeline
+        id: step_deploy
+        run: |
+          echo "Deployment to ${{ inputs.environment }} completed successfully."
+          echo "status=success" >> $GITHUB_OUTPUT

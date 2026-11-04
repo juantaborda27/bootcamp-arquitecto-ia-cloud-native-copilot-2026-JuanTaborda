@@ -1,0 +1,32 @@
+<policies>
+    <inbound>
+        <base />
+        <!-- Control de Consumo por Rate Limiting (Máximo 30 llamadas por minuto) -->
+        <rate-limit calls="30" renewal-period="60" />
+        
+        <!-- Validación de Token JWT / OIDC (Defensa en Profundidad) -->
+        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-json-message="{ &quot;message&quot;: &quot;Acceso no autorizado: Token JWT invalido o ausente&quot; }">
+            <openid-config url="http://localhost:8080/realms/bootcamp/.well-known/openid-configuration" />
+            <required-claims>
+                <claim name="role" match="any">
+                    <value>Admin</value>
+                    <value>User</value>
+                </claim>
+            </required-claims>
+        </validate-jwt>
+
+        <!-- Propagación de Cabecera de Trazabilidad x-correlation-id al Backend -->
+        <set-header name="x-correlation-id" exists-action="skip">
+            <value>@(context.Request.Headers.GetValueOrDefault("x-correlation-id", Guid.NewGuid().ToString()))</value>
+        </set-header>
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>

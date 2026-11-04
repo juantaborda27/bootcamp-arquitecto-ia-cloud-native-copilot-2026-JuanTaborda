@@ -1,0 +1,17 @@
+{
+  "expo": {
+    "name": "Bootcamp Mobile",
+    "slug": "bootcamp-mobile",
+    "scheme": "mobileapp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": ["ios", "android"],
+    "android": {
+      "package": "com.bootcamp.mobile"
+    },
+    "ios": {
+      "bundleIdentifier": "com.bootcamp.mobile"
+    },
+    "plugins": ["expo-secure-store", "expo-web-browser"]
+  }
+}

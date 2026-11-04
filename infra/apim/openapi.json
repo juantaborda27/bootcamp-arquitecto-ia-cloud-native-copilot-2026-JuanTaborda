@@ -1,0 +1,38 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Global EDB Backend API",
+    "description": "API RESTful expuesta a través de Azure API Management",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health Check Endpoint",
+        "responses": {
+          "200": { "description": "API Saludable" }
+        }
+      }
+    },
+    "/api/users": {
+      "get": {
+        "summary": "Obtener lista de usuarios",
+        "responses": {
+          "200": { "description": "Lista de usuarios obtenida exitosamente" },
+          "401": { "description": "No autorizado - Token invalido o ausente" }
+        }
+      }
+    },
+    "/api/admin": {
+      "get": {
+        "summary": "Zona de administración restringida",
+        "responses": {
+          "200": { "description": "Acceso concedido a zona Admin" },
+          "401": { "description": "No autorizado" },
+          "403": { "description": "Prohibido - Se requiere rol Admin" },
+          "429": { "description": "Demasiadas peticiones - Tasa limite excedida" }
+        }
+      }
+    }
+  }
+}

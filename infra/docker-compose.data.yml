@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:18.6
+    environment: { POSTGRES_PASSWORD: example }
+    ports: ["5432:5432"]
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    environment: { SA_PASSWORD: P@ssw0rd!, ACCEPT_EULA: Y }
+    ports: ["1433:1433"]
+  mongo:
+    image: mongo:8.3
+    ports: ["27017:27017"]
+  redis:
+    image: redis:8.10.0-alpine
+    ports: ["6379:6379"]
+  oracle:
+    image: gvenzl/oracle-xe:21-slim-faststart
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:-LocalLabPassword_ChangeMe}
+    ports: ["1521:1521"]
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 60s

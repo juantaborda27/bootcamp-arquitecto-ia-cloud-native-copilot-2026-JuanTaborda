@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: enrollmenthub
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ggedb/Bootcamp.git
+    targetRevision: Diego-Tique
+    path: infra/helm/app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+      - CreateNamespace=true

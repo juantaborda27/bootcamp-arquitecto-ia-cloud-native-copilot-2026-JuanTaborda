@@ -1,0 +1,2 @@
+image: ghcr.io/OWNER/enrollmenthub-angular:replace-with-sha
+port: 4200

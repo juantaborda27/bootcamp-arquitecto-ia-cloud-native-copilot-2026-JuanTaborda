@@ -1,0 +1,48 @@
+{
+  "annotations": { "list": [] },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "title": "Tasa de Peticiones HTTP (RPS)",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "rate(http_requests_total[1m])",
+          "legendFormat": "{{method}} {{handler}}"
+        }
+      ]
+    },
+    {
+      "title": "Latencia Promedio de Respuesta (Duración en ms)",
+      "type": "timeseries",
+      "targets": [
+        {
+          "expr": "rate(http_request_duration_seconds_sum[1m]) / rate(http_request_duration_seconds_count[1m]) * 1000",
+          "legendFormat": "{{handler}}"
+        }
+      ]
+    },
+    {
+      "title": "Tasa de Errores (4xx / 5xx)",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "sum(http_requests_total{status=~\"4..|5..\"})",
+          "legendFormat": "Errores"
+        }
+      ]
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["enrollmenthub", "observability", "prometheus"],
+  "time": { "from": "now-15m", "to": "now" },
+  "title": "EnrollmentHub - Dashboard de Observabilidad (RED)",
+  "uid": "enrollmenthub-red-metrics"
+}

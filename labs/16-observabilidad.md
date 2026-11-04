@@ -1,0 +1,38 @@
+﻿# Lab 16 - Observabilidad con Prometheus y Grafana
+
+## Objetivo
+Obtener visibilidad operativa de la aplicación mediante métricas y dashboards.
+
+## Prerrequisitos
+- App desplegada en entorno de pruebas.
+
+## Paso a paso
+1. Despliega stack de observabilidad del repositorio.
+2. Expón métricas desde backend.
+3. Configura scrape targets en Prometheus.
+4. Crea dashboard base en Grafana.
+5. Ejecuta carga y observa comportamiento.
+
+## Comandos sugeridos
+```bash
+git checkout -b lab-16
+git commit -m "lab16:  Observabilidad con Prometheus y Grafana"
+git push origin lab-16
+```
+
+## Validación
+- Métricas visibles en Prometheus.
+- Dashboard de Grafana con datos reales.
+
+## Rúbrica
+- 40% instrumentación.
+- 40% dashboard útil.
+- 20% evidencia.
+
+## Entregables
+- Registra los resultados obtenidos en la carpeta labs/evidencias.
+- Crea la evidencia por laboratorio siguiendo la nomenclatura lab-XX-tema. Si tu evidencia requiere mas de un archivo, crea una carpeta con esa misma nomenclatura y guarda alli todos los archivos (por ejemplo: .md, .pdf, .docx, imagenes o capturas).
+
+- EVIDENCIAS.md con capturas de paneles.
+
+

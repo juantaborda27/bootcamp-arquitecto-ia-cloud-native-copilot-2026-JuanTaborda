@@ -1,0 +1,30 @@
+name: CD Promotion Pipeline (Dev -> Stage -> Prod)
+
+on:
+  push:
+    branches: ["Diego-Tique"]
+  workflow_dispatch:
+
+jobs:
+  deploy-dev:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: "dev"
+      app_name: "enrollmenthub"
+      image_tag: "lab17-dev"
+
+  deploy-stage:
+    needs: deploy-dev
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: "stage"
+      app_name: "enrollmenthub"
+      image_tag: "lab17-stage"
+
+  deploy-prod:
+    needs: deploy-stage
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: "prod"
+      app_name: "enrollmenthub"
+      image_tag: "lab17-prod"

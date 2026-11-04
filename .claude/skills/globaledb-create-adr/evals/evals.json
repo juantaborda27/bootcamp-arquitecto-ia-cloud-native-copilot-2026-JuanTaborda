@@ -1,0 +1,39 @@
+{
+  "skill_name": "globaledb-create-adr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Decide entre PostgreSQL y Oracle para un servicio de matrículas que debe integrarse con sistemas Oracle existentes y operar localmente en el bootcamp.",
+      "expected_output": "ADR que separa desarrollo y producción, compara integración, costo, operación y portabilidad, y explicita supuestos de licenciamiento.",
+      "files": [],
+      "assertions": [
+        "Describe contexto y restricciones antes de decidir",
+        "Compara al menos PostgreSQL y Oracle con criterios explícitos",
+        "Distingue Oracle XE de una arquitectura Oracle de producción",
+        "Incluye consecuencias negativas y señales para reconsiderar"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Elige Redis Streams, Azure Queue o Kafka para notificaciones de inscripción con volumen moderado y equipo pequeño.",
+      "expected_output": "ADR conciso que evita elegir por moda, compara semántica, operación, costo y crecimiento, y selecciona una sola opción justificadamente.",
+      "files": [],
+      "assertions": [
+        "Compara de dos a tres opciones",
+        "Considera retry, idempotencia y observabilidad",
+        "Incluye complejidad operativa y capacidades del equipo",
+        "No recomienda implementar los tres brokers"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Corrige un error ortográfico en el README.",
+      "expected_output": "Reconoce que un ADR no corresponde a una corrección editorial sin decisión arquitectónica.",
+      "files": [],
+      "assertions": [
+        "No crea un ADR artificial",
+        "Explica brevemente que no hay alternativas arquitectónicas relevantes"
+      ]
+    }
+  ]
+}

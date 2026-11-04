@@ -1,0 +1,4 @@
+apiVersion: v2
+name: enrollmenthub
+version: 0.1.0
+description: Chart de Helm para la aplicación desacoplada EnrollmentHub

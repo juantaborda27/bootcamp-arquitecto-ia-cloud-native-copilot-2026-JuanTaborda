@@ -1,0 +1,24 @@
+{
+  "name": "angular-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx ng serve --port 4200",
+    "build": "npx ng build"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.21",
+    "@angular/cli": "^21.2.21"
+  },
+  "dependencies": {
+    "@angular/common": "^21.2.21",
+    "@angular/compiler": "^21.2.21",
+    "@angular/core": "^21.2.21",
+    "@angular/forms": "^21.2.21",
+    "@angular/platform-browser": "^21.2.21",
+    "@angular/router": "^21.2.21",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  }
+}
